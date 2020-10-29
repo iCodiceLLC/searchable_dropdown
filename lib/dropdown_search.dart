@@ -329,11 +329,13 @@ class _DropdownSearchState<T> extends State<DropdownSearch<T>> {
       barrierColor: widget.popupBarrierColor ?? const Color(0x80000000),
       context: context,
       pageBuilder: (context, animation, secondaryAnimation) {
-        return AlertDialog(
-          contentPadding: EdgeInsets.all(0),
-          shape: widget.popupShape,
-          backgroundColor: widget.popupBackgroundColor,
-          content: _selectDialogInstance(data),
+        return SafeArea(
+          child: AlertDialog(
+            contentPadding: EdgeInsets.all(0),
+            shape: widget.popupShape,
+            backgroundColor: widget.popupBackgroundColor,
+            content: _selectDialogInstance(data),
+          ),
         );
       },
     );
